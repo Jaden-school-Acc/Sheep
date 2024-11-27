@@ -8,6 +8,13 @@ public class  ChildMovement : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
 
+    public float groundDrag;
+
+    [Header("Ground Check")]
+    public float playerHeight;
+    public LayerMask whatIsGround;
+    bool grounded;
+
     public Transform orientation;
 
     float horizontalInput;
@@ -25,7 +32,17 @@ public class  ChildMovement : MonoBehaviour
 
     private void Update()
     {
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         MyInput();
+
+        if (grounded)
+        {
+            rb.drag = groundDrag;
+        }
+        else
+        {
+            rb.drag = 0f;
+        }
     }
 
     private void FixedUpdate()
@@ -44,5 +61,16 @@ public class  ChildMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+    }
+
+    private void SpeedControl()
+    {
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        if(flatVel.magnitude > moveSpeed)
+        {
+            Vector3 limitedflatVel = flatVel.normalized * moveSpeed;
+            rb.velocity = new Vector3(limitedflatVel.x, rb.velocity.y, limitedflatVel.z);
+        }
     }
 }
