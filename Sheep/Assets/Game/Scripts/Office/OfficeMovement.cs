@@ -86,7 +86,7 @@ public class OfficeMovement : MonoBehaviour
         
         targetDir = targetDirection;
         HorzDir += 1;
-        target *= Quaternion.Euler(new Vector3(0, 90, 0));
+        target *= Quaternion.Euler(new Vector3(0, 60, 0));
     }
 
     public void RotLeft(TargetDirection targetDirection = TargetDirection.center){
@@ -100,7 +100,7 @@ public class OfficeMovement : MonoBehaviour
 
         targetDir = targetDirection;
         HorzDir -= 1;
-        target *= Quaternion.Euler(new Vector3(0, -90, 0));
+        target *= Quaternion.Euler(new Vector3(0, -60, 0));
     }
 
     public void RotUp(TargetDirection targetDirection = TargetDirection.center){
