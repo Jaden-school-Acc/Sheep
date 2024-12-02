@@ -16,7 +16,6 @@ public class  ChildMovement : MonoBehaviour
     public float sprintBobAmount;
     public float crouchBobSpeed;
     public float crouchBobAmount;
-    public bool canBobHead = true;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -30,11 +29,13 @@ public class  ChildMovement : MonoBehaviour
 
     [Header("Keybinds")]
     public KeyCode sprintKey = KeyCode.LeftShift;
-    public KeyCode crouchKey = KeyCode.LeftControl;
+    public KeyCode crouchKey = KeyCode.C;
 
     public float groundDrag;
 
-    float timer;
+    public float timer;
+
+    public Camera playerCamera;
 
     public Transform orientation;
 
@@ -69,6 +70,7 @@ public class  ChildMovement : MonoBehaviour
         MyInput();
         SpeedControl();
         StateHandler();
+        HandleHeadBob();
 
         if (grounded)
         {
@@ -123,13 +125,19 @@ public class  ChildMovement : MonoBehaviour
 
     private void HandleHeadBob()
     {
-        if (grounded)
+        if (!grounded)
+            return;
+
+        if(Mathf.Abs(moveDirection.x) > 0.1f || Mathf.Abs(moveDirection.z) > 0.1f )
         {
-            if(Mathf.Abs(moveDirection.x) > 0.1f || Mathf.Abs(moveDirection.z) > 0.1f )
-            {
-                //timer += Time.deltaTime * ();
-            }
+            timer += Time.deltaTime * (state == MovementState.crouching ? crouchBobSpeed : state == MovementState.sprinting ? sprintBobSpeed : walkBobSpeed);
+            playerCamera.transform.localPosition = new Vector3(
+                playerCamera.transform.localPosition.x,
+                startYScale + Mathf.Sin(timer) * (state == MovementState.crouching ? crouchBobAmount : state == MovementState.sprinting ? sprintBobAmount : walkBobAmount),
+                playerCamera.transform.localPosition.z);
+                
         }
+        
 
     }
 
