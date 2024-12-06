@@ -16,6 +16,7 @@ public class  ChildMovement : MonoBehaviour
     public float sprintBobAmount;
     public float crouchBobSpeed;
     public float crouchBobAmount;
+    public float crouchHeight;
 
     [Header("Ground Check")]
     public float playerHeight;
