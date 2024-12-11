@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c655e2501177318468d1e9d12acc67c6, type: 3}
+  m_Name: Room 3
+  m_EditorClassIdentifier: 
+  isOffice: 0
+  doorStatus: 
+  doors: 02000202
+  activity: 0000
+  adjacentRooms:
+  - {fileID: 11400000, guid: 020cfc379d9a2fd45984572319c2bad0, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 541bd10665b73724192154c960d61b49, type: 2}
+  - {fileID: 11400000, guid: 56497480e9314bf4ea1a1971e9651d3a, type: 2}
