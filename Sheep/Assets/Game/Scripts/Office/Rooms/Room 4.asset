@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c655e2501177318468d1e9d12acc67c6, type: 3}
-  m_Name: Hall
+  m_Name: Room 4
   m_EditorClassIdentifier: 
   isOffice: 0
   doorStatus: 
-  doors: 02000002
+  doors: 00000202
   activity: 0000
   adjacentRooms:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 2ab58cf88488df74590418bcd45ab0cb, type: 2}
+  - {fileID: 11400000, guid: 798c895c08dbff14898c5f4534f1be4a, type: 2}
+  - {fileID: 11400000, guid: 020cfc379d9a2fd45984572319c2bad0, type: 2}
