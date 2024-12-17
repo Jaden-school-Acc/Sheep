@@ -6,4 +6,4 @@
 "Vintage Chica" (https://drive.google.com/drive/folders/19KCG-J-p9mDh2KPhPa4x4uyHuZYeJPvb) by battington02
 "Vintage Foxy" (https://drive.google.com/drive/folders/1rYgWx-O6K8Gdvx_IeUE1WFPmDS4QweDj) by battington02
 "Coat hanger" (https://skfb.ly/6vUVs) by laanita is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
- 
+"FNAF PLUSH POR EITAN ARAYA" (https://skfb.ly/oJvQR) by Ofalmet is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
