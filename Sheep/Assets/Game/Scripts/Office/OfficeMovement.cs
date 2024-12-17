@@ -114,7 +114,7 @@ public class OfficeMovement : MonoBehaviour
 
         targetDir = targetDirection;
         VertDir += 1;
-        vertTarget *= Quaternion.Euler(new Vector3(-22.5f, 0, 0));
+        vertTarget *= Quaternion.Euler(new Vector3(-45f, 0, 0));
     }
 
     public void RotDown(TargetDirection targetDirection = TargetDirection.center){
@@ -128,6 +128,6 @@ public class OfficeMovement : MonoBehaviour
 
         targetDir = targetDirection;
         VertDir -= 1;
-        vertTarget *= Quaternion.Euler(new Vector3(22.5f, 0, 0));
+        vertTarget *= Quaternion.Euler(new Vector3(45f, 0, 0));
     }
 }
