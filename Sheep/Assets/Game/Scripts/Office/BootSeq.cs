@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BootSeq : MonoBehaviour
 {
-    [SerializeField] Light screenLight;
+    [SerializeField] Light screenLight, screenLight2;
     [SerializeField] RawImage fade;
     [SerializeField] RawImage white;
 
@@ -39,12 +39,14 @@ public class BootSeq : MonoBehaviour
 
         fade.color = new Color(0, 0, 0, 1);
         white.color = new Color(1, 1, 1, 1);
+        screenLight2.intensity = 0f;
     }
 
     IEnumerator Boot(){
 
         barHorz.SetActive(false);
         barVert.SetActive(false);
+        screenLight2.intensity = 0.09f;
         for(float i = 10; i >= 0; i--){
 
             fade.color = new Color(0, 0, 0, i/10f);
