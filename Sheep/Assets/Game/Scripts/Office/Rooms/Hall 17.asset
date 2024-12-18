@@ -19,5 +19,5 @@ MonoBehaviour:
   adjacentRooms:
   - {fileID: 0}
   - {fileID: 11400000, guid: 2a3ede73a1e65e246a374461e8c39e4c, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: d37db5ecc568b774e80e34ff3ad5e7d3, type: 2}
+  - {fileID: 11400000, guid: 4180ab21f81926f488278f17cde7db0a, type: 2}

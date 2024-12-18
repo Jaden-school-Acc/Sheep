@@ -18,6 +18,6 @@ MonoBehaviour:
   activity: 0000
   adjacentRooms:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 346be00bc637ea04da99f93b0428fa24, type: 2}
   - {fileID: 11400000, guid: 2a3ede73a1e65e246a374461e8c39e4c, type: 2}
   - {fileID: 11400000, guid: 10593c01fcf06a144aca60a8774de88c, type: 2}
