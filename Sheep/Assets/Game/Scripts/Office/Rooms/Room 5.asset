@@ -17,7 +17,7 @@ MonoBehaviour:
   doors: 02020202
   activity: 0000
   adjacentRooms:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 346be00bc637ea04da99f93b0428fa24, type: 2}
   - {fileID: 11400000, guid: 6f83f18b4ebabb149ab8d7e8c356b9ba, type: 2}
   - {fileID: 11400000, guid: 275ad15e03874aa4694ff6af7a22cfd1, type: 2}
   - {fileID: 11400000, guid: 2a3ede73a1e65e246a374461e8c39e4c, type: 2}

@@ -1,10 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
+
+    RoomHandler handler;
 
     public static Dictionary<string, byte> DoorNums = new Dictionary<string, byte>(){
 
@@ -21,8 +22,37 @@ public class Door : MonoBehaviour
 
     void Start(){
 
+        handler = transform.parent.parent.GetComponent<RoomHandler>();
         Door.DoorNums.TryGetValue(name, out doorNum);
         split = transform.parent.name.Split(" ");
         roomNum = (byte)int.Parse(split[1]);
+    }
+
+    void IPointerEnterHandler.OnPointerEnter(UnityEngine.EventSystems.PointerEventData eventData){
+
+
+    }
+    void IPointerExitHandler.OnPointerExit(UnityEngine.EventSystems.PointerEventData eventData){
+
+
+    }
+    void IPointerClickHandler.OnPointerClick(UnityEngine.EventSystems.PointerEventData eventData){
+
+
+        switch(handler.rooms[roomNum].doors[doorNum]){
+
+            case 1:
+                handler.rooms[roomNum].doors[doorNum] = 2;
+                handler.doorsVis[roomNum].doors[doorNum].color = new Color(0.2877358f, 1f, 0.3826894f);
+                break;
+            case 2:
+                handler.rooms[roomNum].doors[doorNum] = 1;
+                handler.doorsVis[roomNum].doors[doorNum].color = new Color(1f, 0.4005865f, 0.2862746f);
+                break;
+            case 0:
+                break;
+            default:
+                break;
+        }
     }
 }
