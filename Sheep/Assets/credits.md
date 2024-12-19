@@ -7,3 +7,5 @@
 "Vintage Foxy" (https://drive.google.com/drive/folders/1rYgWx-O6K8Gdvx_IeUE1WFPmDS4QweDj) by battington02
 "Coat hanger" (https://skfb.ly/6vUVs) by laanita is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "FNAF PLUSH POR EITAN ARAYA" (https://skfb.ly/oJvQR) by Ofalmet is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Paper Stacks"(https://www.cgtrader.com/free-3d-models/interior/interior-office/paper-stacks) by Maxbaril
+"Leather Bag" (https://skfb.ly/6Wz7r) by andree is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
