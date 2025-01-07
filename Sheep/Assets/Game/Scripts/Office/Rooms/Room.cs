@@ -28,7 +28,7 @@ public class Room : ScriptableObject
     };
 
     [Tooltip("order is: N/E/S/W - 0/1/2/3")]
-    public ScriptableObject[] adjacentRooms = new ScriptableObject[]{
+    public Room[] adjacentRooms = new Room[]{
 
         null,null,null,null
     };

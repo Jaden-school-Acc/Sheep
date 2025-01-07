@@ -10,13 +10,32 @@ public class RoomHandler : MonoBehaviour
     public DoorVis[] doorsVis;
 
     bool freddieReady = true;
-    void Update(){
 
-        if(freddieReady){
-            StartCoroutine(Freddie(Random.Range(0f,10f)));
+    Room previousFreddie = null;
+    void Start(){
+
+        foreach(Room room in rooms){
+
+            for(int i = 0; i < room.activity.Length; i++){
+
+                room.activity[i] = false;
+                if(room.doors[i] != 0)
+                    room.doors[i] = 2;
+            }
+            if(room.name == "Room 7"){
+
+                room.activity[0] = true;
+                previousFreddie = room;
+            }
         }
     }
 
+    void Update(){
+
+        if(freddieReady){
+            StartCoroutine(Freddie(Random.Range(5f,15f)));
+        }
+    }
     IEnumerator Freddie(float waitTime){
 
         freddieReady = false;
@@ -33,16 +52,23 @@ public class RoomHandler : MonoBehaviour
         List<Room> choices = new List<Room>();
         for(int i = 0; i < currentRoom.adjacentRooms.Length; i++){
 
-            if(currentRoom.adjacentRooms[i] != null){
+            if(currentRoom.adjacentRooms[i] != null && currentRoom.adjacentRooms[i] != previousFreddie){
 
                 if(currentRoom.doors[i] == 2)
-                    choices.Add(currentRoom.adjacentRooms[i].GetComponent<Room>());
+                    choices.Add(currentRoom.adjacentRooms[i]);
             }
         }
-        int c = Mathf.RoundToInt(Random.Range(0,choices.Count-1));
+        if(choices.Count == 0){
+
+            freddieReady = true;
+            yield break;
+        }
+        int c = Mathf.RoundToInt(Random.Range(0,choices.Count));
         Room selectedRoom = choices[c];
         currentRoom.activity[0] = false;
         selectedRoom.activity[0] = true;
+        if(!(currentRoom.name == "Hall 18" && selectedRoom.name == "Room 11") && !(currentRoom.name == "Hall 13" && selectedRoom.name == "Room 22"))
+            previousFreddie = currentRoom;
 
         for(int i = 0; i < rooms.Length; i++){
 

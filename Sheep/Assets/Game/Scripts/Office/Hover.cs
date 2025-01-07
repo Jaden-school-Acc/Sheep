@@ -27,7 +27,7 @@ public class Hover : MonoBehaviour, IPointerEnterHandler
 
     void IPointerEnterHandler.OnPointerEnter(UnityEngine.EventSystems.PointerEventData eventData){
         
-        Debug.Log($"moving {vertDirection.ToString()}");
+        // Debug.Log($"moving {vertDirection.ToString()}");
         if(vertDirection == VertDirection.up){
 
             movement.RotUp(TargetDirection.up);
