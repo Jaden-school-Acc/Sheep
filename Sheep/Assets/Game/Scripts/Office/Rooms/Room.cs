@@ -19,7 +19,7 @@ public class Room : ScriptableObject
         0,0,0,0
     };
 
-    [Tooltip("false = absent, true = present\norder is: child/sheep - 0/1")]
+    [Tooltip("false = absent, true = present\norder is: Freddie/Bonnie/Foxy/Chica - 0/1")]
     // false = absent, true = present
     // [child],[sheep]
     public bool[] activity = new bool[]{

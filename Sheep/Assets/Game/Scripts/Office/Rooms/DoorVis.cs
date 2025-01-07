@@ -5,8 +5,13 @@ using UnityEngine.UI;
 public class DoorVis : MonoBehaviour
 {
     public RawImage[] doors = new RawImage[4];
+    RawImage self;
+
+    public bool freddie, bonnie, foxy, chica;
 
     void Start(){
+
+        self = GetComponent<RawImage>();
 
         foreach(RawImage door in transform.GetComponentsInChildren<RawImage>()){
             
@@ -28,5 +33,15 @@ public class DoorVis : MonoBehaviour
                     break;
             }
         }
+    }
+
+    void Update(){
+
+        if(freddie){
+
+            self.color = new Color(1,0,0,1);
+        }
+        else
+            self.color = new Color(1,1,1,1);
     }
 }

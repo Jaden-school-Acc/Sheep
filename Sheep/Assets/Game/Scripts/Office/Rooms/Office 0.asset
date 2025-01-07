@@ -15,7 +15,7 @@ MonoBehaviour:
   isOffice: 1
   doorStatus: 01010001
   doors: 02020002
-  activity: 0000
+  activity: 00000000
   adjacentRooms:
   - {fileID: 11400000, guid: 7d63564a0af88514fbf1672ed4934478, type: 2}
   - {fileID: 11400000, guid: 7379d2b236e878f4db8b5895cf1ba899, type: 2}
