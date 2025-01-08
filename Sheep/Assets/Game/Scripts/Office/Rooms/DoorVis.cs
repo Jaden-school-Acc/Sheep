@@ -39,7 +39,18 @@ public class DoorVis : MonoBehaviour
 
         if(freddie){
 
+            self.color = new Color(0.4f,0.2f,0,1);
+        }
+        else if(bonnie){
+
+            self.color = new Color(1,0,1,1);
+        }
+        else if(foxy){
+
             self.color = new Color(1,0,0,1);
+        }
+        else if(chica){
+            self.color = new Color(1,1,0,1);
         }
         else
             self.color = new Color(1,1,1,1);

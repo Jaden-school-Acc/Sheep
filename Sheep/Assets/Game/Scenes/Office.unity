@@ -12148,7 +12148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12188,7 +12188,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   freddie: 0
-  bonnie: 0
+  bonnie: 1
   foxy: 0
   chica: 0
 --- !u!1 &1213105800
@@ -12884,7 +12884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12926,7 +12926,7 @@ MonoBehaviour:
   freddie: 0
   bonnie: 0
   foxy: 0
-  chica: 0
+  chica: 1
 --- !u!4 &1276670184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7955277272159869557, guid: 442870b2d568cd54b8f77b4bd6b2f64d,
@@ -15413,7 +15413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.4, g: 0.2, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16723,7 +16723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16764,7 +16764,7 @@ MonoBehaviour:
   - {fileID: 0}
   freddie: 0
   bonnie: 0
-  foxy: 0
+  foxy: 1
   chica: 0
 --- !u!1 &1659561192
 GameObject:
@@ -17484,7 +17484,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
