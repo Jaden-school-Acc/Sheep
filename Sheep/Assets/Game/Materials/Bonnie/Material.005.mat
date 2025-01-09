@@ -95,7 +95,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 0
-    - _Cutoff: 0.54
+    - _Cutoff: 0.2
     - _DetailAlbedoMapScale: 0.61
     - _DetailNormalMapScale: 1
     - _DstBlend: 1
@@ -104,7 +104,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.59999996
     - _GlossyReflections: 1
-    - _Metallic: 0
+    - _Metallic: 0.695
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
