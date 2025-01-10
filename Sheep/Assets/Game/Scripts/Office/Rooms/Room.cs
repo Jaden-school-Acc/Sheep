@@ -32,4 +32,7 @@ public class Room : ScriptableObject
 
         null,null,null,null
     };
+
+    public int soundLevel;
+    public bool emmitingSound;
 }

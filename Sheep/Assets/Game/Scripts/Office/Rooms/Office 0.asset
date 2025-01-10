@@ -21,3 +21,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7379d2b236e878f4db8b5895cf1ba899, type: 2}
   - {fileID: 0}
   - {fileID: 11400000, guid: d37db5ecc568b774e80e34ff3ad5e7d3, type: 2}
+  soundLevel: 1
+  emmitingSound: 1
