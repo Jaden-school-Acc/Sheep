@@ -81,8 +81,13 @@ public class RoomHandler : MonoBehaviour
 
             if(currentRoom.adjacentRooms[i] != null && currentRoom.adjacentRooms[i] != previousFreddie){
 
-                if(currentRoom.doors[i] == 2)
-                    choices.Add(currentRoom.adjacentRooms[i]);
+                if(currentRoom.doors[i] == 2){
+
+                    for(int j = 0; j < currentRoom.adjacentRooms[i].soundLevel + 1; j++){
+
+                        choices.Add(currentRoom.adjacentRooms[i]);
+                    }
+                }
             }
         }
         if(choices.Count == 0){
@@ -130,8 +135,13 @@ public class RoomHandler : MonoBehaviour
 
             if(currentRoom.adjacentRooms[i] != null && currentRoom.adjacentRooms[i] != previousBonnie){
 
-                if(currentRoom.doors[i] == 2)
-                    choices.Add(currentRoom.adjacentRooms[i]);
+                if(currentRoom.doors[i] == 2){
+
+                    for(int j = 0; j < currentRoom.adjacentRooms[i].soundLevel + 1; j++){
+
+                        choices.Add(currentRoom.adjacentRooms[i]);
+                    }
+                }
             }
         }
         if(choices.Count == 0){
@@ -179,8 +189,13 @@ public class RoomHandler : MonoBehaviour
 
             if(currentRoom.adjacentRooms[i] != null && currentRoom.adjacentRooms[i] != previousFoxy){
 
-                if(currentRoom.doors[i] == 2)
-                    choices.Add(currentRoom.adjacentRooms[i]);
+                if(currentRoom.doors[i] == 2){
+
+                    for(int j = 0; j < currentRoom.adjacentRooms[i].soundLevel + 1; j++){
+
+                        choices.Add(currentRoom.adjacentRooms[i]);
+                    }
+                }
             }
         }
         if(choices.Count == 0){
@@ -228,8 +243,13 @@ public class RoomHandler : MonoBehaviour
 
             if(currentRoom.adjacentRooms[i] != null && currentRoom.adjacentRooms[i] != previousChica){
 
-                if(currentRoom.doors[i] == 2)
-                    choices.Add(currentRoom.adjacentRooms[i]);
+                if(currentRoom.doors[i] == 2){
+
+                    for(int j = 0; j < currentRoom.adjacentRooms[i].soundLevel + 1; j++){
+
+                        choices.Add(currentRoom.adjacentRooms[i]);
+                    }
+                }
             }
         }
         if(choices.Count == 0){
