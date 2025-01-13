@@ -31,6 +31,8 @@ public enum TargetDirection{
 public class OfficeMovement : MonoBehaviour
 {
 
+    public bool maskOn = false;
+
     [SerializeField] Camera cam;
     HorzDirection HorzDir = HorzDirection.center;
     VertDirection VertDir = VertDirection.center;

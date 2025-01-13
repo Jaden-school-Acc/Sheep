@@ -6,10 +6,14 @@ using UnityEngine;
 
 public class RoomHandler : MonoBehaviour
 {
+
+    OfficeMovement player;
+
     public Room[] rooms;
     public DoorVis[] doorsVis;
 
     bool freddieReady = true, bonnieReady = true, foxyReady = true, chicaReady = true;
+    bool freddieReadyAfter = true, bonnieReadyAfter = true, foxyReadyAfter = true, chicaReadyAfter = true;
 
     Room previousFreddie = null;
     Room previousBonnie = null;
@@ -46,6 +50,8 @@ public class RoomHandler : MonoBehaviour
                 previousChica = room;
             }
         }
+    
+        player = GameObject.Find("Player").GetComponent<OfficeMovement>();
     }
 
     void Update(){
@@ -68,12 +74,45 @@ public class RoomHandler : MonoBehaviour
         freddieReady = false;
         yield return new WaitForSeconds(waitTime);
 
+        if(!freddieReadyAfter)
+            yield break;
+        freddieReadyAfter = false;
+
         Room currentRoom = null;
         for(int i = 0; i < rooms.Length; i++){
 
             if(rooms[i].activity[0]){
 
                 currentRoom = rooms[i];
+            }
+        }
+        if(currentRoom.name == "Office 0"){
+            
+            freddieReady = false;
+            bonnieReady = false;
+            foxyReady = false;
+            chicaReady = false;
+            freddieReadyAfter = false;
+            bonnieReadyAfter = false;
+            foxyReadyAfter = false;
+            chicaReadyAfter = false;
+            yield return new WaitForSeconds(2f);
+            if(!player.maskOn){
+
+                Debug.Log("(Insert Jumpscare Here)");
+                yield break;
+            }
+            else{
+                Debug.Log("Safe.");
+                
+                freddieReady = true;
+                bonnieReady = true;
+                foxyReady = true;
+                chicaReady = true;
+                freddieReadyAfter = true;
+                bonnieReadyAfter = true;
+                foxyReadyAfter = true;
+                chicaReadyAfter = true;
             }
         }
         List<Room> choices = new List<Room>();
@@ -115,6 +154,7 @@ public class RoomHandler : MonoBehaviour
         }
 
         freddieReady = true;
+        freddieReadyAfter = true;
     }
 
     IEnumerator Bonnie(float waitTime){
@@ -122,12 +162,46 @@ public class RoomHandler : MonoBehaviour
         bonnieReady = false;
         yield return new WaitForSeconds(waitTime);
 
+        if(!bonnieReadyAfter)
+            yield break;
+        bonnieReadyAfter = false;
+
+
         Room currentRoom = null;
         for(int i = 0; i < rooms.Length; i++){
 
             if(rooms[i].activity[1]){
 
                 currentRoom = rooms[i];
+            }
+        }
+        if(currentRoom.name == "Office 0"){
+            
+            freddieReady = false;
+            bonnieReady = false;
+            foxyReady = false;
+            chicaReady = false;
+            freddieReadyAfter = false;
+            bonnieReadyAfter = false;
+            foxyReadyAfter = false;
+            chicaReadyAfter = false;
+            yield return new WaitForSeconds(2f);
+            if(!player.maskOn){
+
+                Debug.Log("(Insert Jumpscare Here)");
+                yield break;
+            }
+            else{
+                Debug.Log("Safe.");
+                
+                freddieReady = true;
+                bonnieReady = true;
+                foxyReady = true;
+                chicaReady = true;
+                freddieReadyAfter = true;
+                bonnieReadyAfter = true;
+                foxyReadyAfter = true;
+                chicaReadyAfter = true;
             }
         }
         List<Room> choices = new List<Room>();
@@ -169,6 +243,7 @@ public class RoomHandler : MonoBehaviour
         }
 
         bonnieReady = true;
+        bonnieReadyAfter = true;
     }
 
     IEnumerator Foxy(float waitTime){
@@ -176,12 +251,46 @@ public class RoomHandler : MonoBehaviour
         foxyReady = false;
         yield return new WaitForSeconds(waitTime);
 
+        if(!foxyReadyAfter)
+            yield break;
+        foxyReadyAfter = false;
+
+
         Room currentRoom = null;
         for(int i = 0; i < rooms.Length; i++){
 
             if(rooms[i].activity[2]){
 
                 currentRoom = rooms[i];
+            }
+        }
+        if(currentRoom.name == "Office 0"){
+            
+            freddieReady = false;
+            bonnieReady = false;
+            foxyReady = false;
+            chicaReady = false;
+            freddieReadyAfter = false;
+            bonnieReadyAfter = false;
+            foxyReadyAfter = false;
+            chicaReadyAfter = false;
+            yield return new WaitForSeconds(2f);
+            if(!player.maskOn){
+
+                Debug.Log("(Insert Jumpscare Here)");
+                yield break;
+            }
+            else{
+                Debug.Log("Safe.");
+                
+                freddieReady = true;
+                bonnieReady = true;
+                foxyReady = true;
+                chicaReady = true;
+                freddieReadyAfter = true;
+                bonnieReadyAfter = true;
+                foxyReadyAfter = true;
+                chicaReadyAfter = true;
             }
         }
         List<Room> choices = new List<Room>();
@@ -223,6 +332,7 @@ public class RoomHandler : MonoBehaviour
         }
 
         foxyReady = true;
+        foxyReadyAfter = true;
     }
 
     IEnumerator Chica(float waitTime){
@@ -230,12 +340,46 @@ public class RoomHandler : MonoBehaviour
         chicaReady = false;
         yield return new WaitForSeconds(waitTime);
 
+        if(!chicaReadyAfter)
+            yield break;
+        chicaReadyAfter = false;
+
+
         Room currentRoom = null;
         for(int i = 0; i < rooms.Length; i++){
 
             if(rooms[i].activity[3]){
 
                 currentRoom = rooms[i];
+            }
+        }
+        if(currentRoom.name == "Office 0"){
+            
+            freddieReady = false;
+            bonnieReady = false;
+            foxyReady = false;
+            chicaReady = false;
+            freddieReadyAfter = false;
+            bonnieReadyAfter = false;
+            foxyReadyAfter = false;
+            chicaReadyAfter = false;
+            yield return new WaitForSeconds(2f);
+            if(!player.maskOn){
+
+                Debug.Log("(Insert Jumpscare Here)");
+                yield break;
+            }
+            else{
+                Debug.Log("Safe.");
+                
+                freddieReady = true;
+                bonnieReady = true;
+                foxyReady = true;
+                chicaReady = true;
+                freddieReadyAfter = true;
+                bonnieReadyAfter = true;
+                foxyReadyAfter = true;
+                chicaReadyAfter = true;
             }
         }
         List<Room> choices = new List<Room>();
@@ -277,6 +421,7 @@ public class RoomHandler : MonoBehaviour
         }
 
         chicaReady = true;
+        chicaReadyAfter = true;
     }
 
 }
