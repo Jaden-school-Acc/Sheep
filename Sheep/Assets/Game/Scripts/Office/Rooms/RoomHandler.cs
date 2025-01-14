@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoomHandler : MonoBehaviour
@@ -12,10 +10,12 @@ public class RoomHandler : MonoBehaviour
     public Room[] rooms;
     public DoorVis[] doorsVis;
 
-    bool freddieReady = true, bonnieReady = true, foxyReady = true, chicaReady = true;
-    bool freddieReadyAfter = true, bonnieReadyAfter = true, foxyReadyAfter = true, chicaReadyAfter = true;
+    [SerializeField] GameObject[] animatronics;
 
-    Room previousFreddie = null;
+    bool freddyReady = true, bonnieReady = true, foxyReady = true, chicaReady = true;
+    bool freddyReadyAfter = true, bonnieReadyAfter = true, foxyReadyAfter = true, chicaReadyAfter = true;
+
+    Room previousFreddy = null;
     Room previousBonnie = null;
     Room previousFoxy = null;
     Room previousChica = null;
@@ -32,7 +32,7 @@ public class RoomHandler : MonoBehaviour
             if(room.name == "Room 7"){
 
                 room.activity[0] = true;
-                previousFreddie = room;
+                previousFreddy = room;
             }
             if(room.name == "Room 12"){
 
@@ -56,8 +56,8 @@ public class RoomHandler : MonoBehaviour
 
     void Update(){
 
-        if(freddieReady){
-            StartCoroutine(Freddie(Random.Range(5f,15f)));
+        if(freddyReady){
+            StartCoroutine(Freddy(Random.Range(5f,15f)));
         }
         if(bonnieReady){
             StartCoroutine(Bonnie(Random.Range(5f,15f)));
@@ -69,14 +69,10 @@ public class RoomHandler : MonoBehaviour
             StartCoroutine(Chica(Random.Range(5f,15f)));
         }
     }
-    IEnumerator Freddie(float waitTime){
+    IEnumerator Freddy(float waitTime){
 
-        freddieReady = false;
-        yield return new WaitForSeconds(waitTime);
-
-        if(!freddieReadyAfter)
-            yield break;
-        freddieReadyAfter = false;
+        
+        freddyReady = false;
 
         Room currentRoom = null;
         for(int i = 0; i < rooms.Length; i++){
@@ -86,13 +82,13 @@ public class RoomHandler : MonoBehaviour
                 currentRoom = rooms[i];
             }
         }
+        if(currentRoom.name == "Office 0")
+            animatronics[0].SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+
         if(currentRoom.name == "Office 0"){
-            
-            freddieReady = false;
-            bonnieReady = false;
-            foxyReady = false;
-            chicaReady = false;
-            freddieReadyAfter = false;
+        
+            freddyReadyAfter = false;
             bonnieReadyAfter = false;
             foxyReadyAfter = false;
             chicaReadyAfter = false;
@@ -104,21 +100,20 @@ public class RoomHandler : MonoBehaviour
             }
             else{
                 Debug.Log("Safe.");
-                
-                freddieReady = true;
-                bonnieReady = true;
-                foxyReady = true;
-                chicaReady = true;
-                freddieReadyAfter = true;
+                animatronics[0].SetActive(false);
+                freddyReadyAfter = true;
                 bonnieReadyAfter = true;
                 foxyReadyAfter = true;
                 chicaReadyAfter = true;
             }
         }
+
+        yield return new WaitUntil(() => freddyReadyAfter);
+        freddyReadyAfter = false;
         List<Room> choices = new List<Room>();
         for(int i = 0; i < currentRoom.adjacentRooms.Length; i++){
 
-            if(currentRoom.adjacentRooms[i] != null && currentRoom.adjacentRooms[i] != previousFreddie){
+            if(currentRoom.adjacentRooms[i] != null && currentRoom.adjacentRooms[i] != previousFreddy){
 
                 if(currentRoom.doors[i] == 2){
 
@@ -131,7 +126,22 @@ public class RoomHandler : MonoBehaviour
         }
         if(choices.Count == 0){
 
-            freddieReady = true;
+            freddyReady = true;
+            yield break;
+        }
+        for(int i = 0; i < choices.Count; i++){
+            
+            if(choices[i].name == "Office 0"){
+
+                if(currentRoom.name != "Hall 14"){
+                    choices.RemoveAt(i);
+                    i = 0;
+                }
+            }
+        }
+        if(choices.Count == 0){
+
+            freddyReady = true;
             yield break;
         }
         int c = Mathf.RoundToInt(Random.Range(0,choices.Count));
@@ -139,33 +149,28 @@ public class RoomHandler : MonoBehaviour
         currentRoom.activity[0] = false;
         selectedRoom.activity[0] = true;
         if(!(currentRoom.name == "Hall 18" && selectedRoom.name == "Room 11") && !(currentRoom.name == "Hall 13" && selectedRoom.name == "Room 12") && !(currentRoom.name == "Hall 15" && selectedRoom.name == "Room 7"))
-            previousFreddie = currentRoom;
+            previousFreddy = currentRoom;
 
         for(int i = 0; i < rooms.Length; i++){
 
             if(rooms[i] == currentRoom){
 
-                doorsVis[i].freddie = false;
+                doorsVis[i].freddy = false;
             }
             if(rooms[i] == selectedRoom){
 
-                doorsVis[i].freddie = true;
+                doorsVis[i].freddy = true;
             }
         }
 
-        freddieReady = true;
-        freddieReadyAfter = true;
+        freddyReady = true;
+        freddyReadyAfter = true;
     }
 
     IEnumerator Bonnie(float waitTime){
 
+        
         bonnieReady = false;
-        yield return new WaitForSeconds(waitTime);
-
-        if(!bonnieReadyAfter)
-            yield break;
-        bonnieReadyAfter = false;
-
 
         Room currentRoom = null;
         for(int i = 0; i < rooms.Length; i++){
@@ -175,13 +180,13 @@ public class RoomHandler : MonoBehaviour
                 currentRoom = rooms[i];
             }
         }
+        if(currentRoom.name == "Office 0")
+            animatronics[1].SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+
         if(currentRoom.name == "Office 0"){
-            
-            freddieReady = false;
-            bonnieReady = false;
-            foxyReady = false;
-            chicaReady = false;
-            freddieReadyAfter = false;
+
+            freddyReadyAfter = false;
             bonnieReadyAfter = false;
             foxyReadyAfter = false;
             chicaReadyAfter = false;
@@ -193,17 +198,16 @@ public class RoomHandler : MonoBehaviour
             }
             else{
                 Debug.Log("Safe.");
-                
-                freddieReady = true;
-                bonnieReady = true;
-                foxyReady = true;
-                chicaReady = true;
-                freddieReadyAfter = true;
+                animatronics[1].SetActive(false);
+                freddyReadyAfter = true;
                 bonnieReadyAfter = true;
                 foxyReadyAfter = true;
                 chicaReadyAfter = true;
             }
         }
+
+        yield return new WaitUntil(() => bonnieReadyAfter);
+        bonnieReadyAfter = false;
         List<Room> choices = new List<Room>();
         for(int i = 0; i < currentRoom.adjacentRooms.Length; i++){
 
@@ -221,6 +225,26 @@ public class RoomHandler : MonoBehaviour
         if(choices.Count == 0){
 
             bonnieReady = true;
+            yield break;
+        }
+        for(int i = 0; i < choices.Count; i++){
+            
+            if(choices[i].name == "Office 0"){
+
+                if(currentRoom.name != "Hall 13"){
+                    choices.RemoveAt(i);
+                    i = 0;
+                }
+            }
+            if(choices[i].name == "Hall 14"){
+
+                choices.RemoveAt(i);
+                i = 0;
+            }
+        }
+        if(choices.Count == 0){
+
+            freddyReady = true;
             yield break;
         }
         int c = Mathf.RoundToInt(Random.Range(0,choices.Count));
@@ -248,13 +272,8 @@ public class RoomHandler : MonoBehaviour
 
     IEnumerator Foxy(float waitTime){
 
+        
         foxyReady = false;
-        yield return new WaitForSeconds(waitTime);
-
-        if(!foxyReadyAfter)
-            yield break;
-        foxyReadyAfter = false;
-
 
         Room currentRoom = null;
         for(int i = 0; i < rooms.Length; i++){
@@ -264,13 +283,13 @@ public class RoomHandler : MonoBehaviour
                 currentRoom = rooms[i];
             }
         }
+        if(currentRoom.name == "Office 0")
+            animatronics[2].SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+
         if(currentRoom.name == "Office 0"){
             
-            freddieReady = false;
-            bonnieReady = false;
-            foxyReady = false;
-            chicaReady = false;
-            freddieReadyAfter = false;
+            freddyReadyAfter = false;
             bonnieReadyAfter = false;
             foxyReadyAfter = false;
             chicaReadyAfter = false;
@@ -282,17 +301,16 @@ public class RoomHandler : MonoBehaviour
             }
             else{
                 Debug.Log("Safe.");
-                
-                freddieReady = true;
-                bonnieReady = true;
-                foxyReady = true;
-                chicaReady = true;
-                freddieReadyAfter = true;
+                animatronics[2].SetActive(false);
+                freddyReadyAfter = true;
                 bonnieReadyAfter = true;
                 foxyReadyAfter = true;
                 chicaReadyAfter = true;
             }
         }
+
+        yield return new WaitUntil(() => foxyReadyAfter);
+        foxyReadyAfter = false;
         List<Room> choices = new List<Room>();
         for(int i = 0; i < currentRoom.adjacentRooms.Length; i++){
 
@@ -310,6 +328,21 @@ public class RoomHandler : MonoBehaviour
         if(choices.Count == 0){
 
             foxyReady = true;
+            yield break;
+        }
+        for(int i = 0; i < choices.Count; i++){
+            
+            if(choices[i].name == "Office 0"){
+
+                if(currentRoom.name != "Hall 14"){
+                    choices.RemoveAt(i);
+                    i = 0;
+                }
+            }
+        }
+        if(choices.Count == 0){
+
+            freddyReady = true;
             yield break;
         }
         int c = Mathf.RoundToInt(Random.Range(0,choices.Count));
@@ -337,13 +370,8 @@ public class RoomHandler : MonoBehaviour
 
     IEnumerator Chica(float waitTime){
 
+        
         chicaReady = false;
-        yield return new WaitForSeconds(waitTime);
-
-        if(!chicaReadyAfter)
-            yield break;
-        chicaReadyAfter = false;
-
 
         Room currentRoom = null;
         for(int i = 0; i < rooms.Length; i++){
@@ -353,13 +381,13 @@ public class RoomHandler : MonoBehaviour
                 currentRoom = rooms[i];
             }
         }
+        if(currentRoom.name == "Office 0")
+            animatronics[3].SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+
         if(currentRoom.name == "Office 0"){
             
-            freddieReady = false;
-            bonnieReady = false;
-            foxyReady = false;
-            chicaReady = false;
-            freddieReadyAfter = false;
+            freddyReadyAfter = false;
             bonnieReadyAfter = false;
             foxyReadyAfter = false;
             chicaReadyAfter = false;
@@ -371,17 +399,16 @@ public class RoomHandler : MonoBehaviour
             }
             else{
                 Debug.Log("Safe.");
-                
-                freddieReady = true;
-                bonnieReady = true;
-                foxyReady = true;
-                chicaReady = true;
-                freddieReadyAfter = true;
+                animatronics[3].SetActive(false);
+                freddyReadyAfter = true;
                 bonnieReadyAfter = true;
                 foxyReadyAfter = true;
                 chicaReadyAfter = true;
             }
         }
+
+        yield return new WaitUntil(() => chicaReadyAfter);
+        chicaReadyAfter = false;
         List<Room> choices = new List<Room>();
         for(int i = 0; i < currentRoom.adjacentRooms.Length; i++){
 
@@ -399,6 +426,26 @@ public class RoomHandler : MonoBehaviour
         if(choices.Count == 0){
 
             chicaReady = true;
+            yield break;
+        }
+        for(int i = 0; i < choices.Count; i++){
+            
+            if(choices[i].name == "Office 0"){
+
+                if(currentRoom.name != "Hall 16"){
+                    choices.RemoveAt(i);
+                    i = 0;
+                }
+            }
+            if(choices[i].name == "Hall 14"){
+
+                choices.RemoveAt(i);
+                i = 0;
+            }
+        }
+        if(choices.Count == 0){
+
+            freddyReady = true;
             yield break;
         }
         int c = Mathf.RoundToInt(Random.Range(0,choices.Count));

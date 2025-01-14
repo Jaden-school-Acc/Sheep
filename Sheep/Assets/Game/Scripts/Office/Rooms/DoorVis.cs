@@ -7,7 +7,7 @@ public class DoorVis : MonoBehaviour
     public RawImage[] doors = new RawImage[4];
     RawImage self;
 
-    public bool freddie, bonnie, foxy, chica;
+    public bool freddy, bonnie, foxy, chica;
 
     void Start(){
 
@@ -37,7 +37,7 @@ public class DoorVis : MonoBehaviour
 
     void Update(){
 
-        if(freddie){
+        if(freddy){
 
             self.color = new Color(0.4f,0.2f,0,1);
         }

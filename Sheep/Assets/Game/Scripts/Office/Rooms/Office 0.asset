@@ -15,11 +15,11 @@ MonoBehaviour:
   isOffice: 1
   doorStatus: 01010001
   doors: 02020002
-  activity: 00000000
+  activity: 00000001
   adjacentRooms:
   - {fileID: 11400000, guid: 7d63564a0af88514fbf1672ed4934478, type: 2}
   - {fileID: 11400000, guid: 7379d2b236e878f4db8b5895cf1ba899, type: 2}
   - {fileID: 0}
   - {fileID: 11400000, guid: d37db5ecc568b774e80e34ff3ad5e7d3, type: 2}
-  soundLevel: 1
+  soundLevel: 5
   emmitingSound: 1
