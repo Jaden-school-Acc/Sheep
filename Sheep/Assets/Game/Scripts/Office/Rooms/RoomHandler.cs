@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomHandler : MonoBehaviour
 {
 
     OfficeMovement player;
+
+    [SerializeField] Light flashlight;
 
     public Room[] rooms;
     public DoorVis[] doorsVis;
@@ -14,6 +17,8 @@ public class RoomHandler : MonoBehaviour
 
     bool freddyReady = true, bonnieReady = true, foxyReady = true, chicaReady = true;
     bool freddyReadyAfter = true, bonnieReadyAfter = true, foxyReadyAfter = true, chicaReadyAfter = true;
+
+    [SerializeField] RawImage dark;
 
     Room previousFreddy = null;
     Room previousBonnie = null;
@@ -56,6 +61,15 @@ public class RoomHandler : MonoBehaviour
 
     void Update(){
 
+        if(Input.GetKeyDown(KeyCode.F)){
+
+            flashlight.enabled = true;
+        }
+        if(Input.GetKeyUp(KeyCode.F)){
+
+            flashlight.enabled = false;
+        }
+
         if(freddyReady){
             StartCoroutine(Freddy(Random.Range(5f,15f)));
         }
@@ -92,7 +106,7 @@ public class RoomHandler : MonoBehaviour
             bonnieReadyAfter = false;
             foxyReadyAfter = false;
             chicaReadyAfter = false;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             if(!player.maskOn){
 
                 Debug.Log("(Insert Jumpscare Here)");
@@ -100,7 +114,43 @@ public class RoomHandler : MonoBehaviour
             }
             else{
                 Debug.Log("Safe.");
+                
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
                 animatronics[0].SetActive(false);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
                 freddyReadyAfter = true;
                 bonnieReadyAfter = true;
                 foxyReadyAfter = true;
@@ -190,7 +240,7 @@ public class RoomHandler : MonoBehaviour
             bonnieReadyAfter = false;
             foxyReadyAfter = false;
             chicaReadyAfter = false;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             if(!player.maskOn){
 
                 Debug.Log("(Insert Jumpscare Here)");
@@ -198,7 +248,43 @@ public class RoomHandler : MonoBehaviour
             }
             else{
                 Debug.Log("Safe.");
+                
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
                 animatronics[1].SetActive(false);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
                 freddyReadyAfter = true;
                 bonnieReadyAfter = true;
                 foxyReadyAfter = true;
@@ -293,15 +379,23 @@ public class RoomHandler : MonoBehaviour
             bonnieReadyAfter = false;
             foxyReadyAfter = false;
             chicaReadyAfter = false;
-            yield return new WaitForSeconds(2f);
-            if(!player.maskOn){
+            bool flash = false;
+            yield return new WaitForSeconds(3f);
+            if(flashlight.isActiveAndEnabled){
 
+                flash = true;
+            }
+            if(!flash){
+                
+                yield return new WaitUntil(() => !flashlight.isActiveAndEnabled);
                 Debug.Log("(Insert Jumpscare Here)");
                 yield break;
             }
             else{
                 Debug.Log("Safe.");
+                yield return new WaitUntil(() => !flashlight.isActiveAndEnabled);
                 animatronics[2].SetActive(false);
+                flash = false;
                 freddyReadyAfter = true;
                 bonnieReadyAfter = true;
                 foxyReadyAfter = true;
@@ -391,7 +485,7 @@ public class RoomHandler : MonoBehaviour
             bonnieReadyAfter = false;
             foxyReadyAfter = false;
             chicaReadyAfter = false;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             if(!player.maskOn){
 
                 Debug.Log("(Insert Jumpscare Here)");
@@ -399,7 +493,43 @@ public class RoomHandler : MonoBehaviour
             }
             else{
                 Debug.Log("Safe.");
+                
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
                 animatronics[3].SetActive(false);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
+                                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,1);
+                yield return new WaitForSeconds(Random.Range(0.01f, 0.15f));
+                dark.color = new Color(0,0,0,0);
                 freddyReadyAfter = true;
                 bonnieReadyAfter = true;
                 foxyReadyAfter = true;

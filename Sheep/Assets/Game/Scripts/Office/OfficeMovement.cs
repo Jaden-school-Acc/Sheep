@@ -1,8 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Microsoft.Unity.VisualStudio.Editor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public enum HorzDirection{
@@ -32,6 +29,7 @@ public class OfficeMovement : MonoBehaviour
 {
 
     public bool maskOn = false;
+    [SerializeField] Animator maskAnim;
 
     [SerializeField] Camera cam;
     HorzDirection HorzDir = HorzDirection.center;
@@ -75,6 +73,22 @@ public class OfficeMovement : MonoBehaviour
                 cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, vertTarget, vertSpeed);
                 break;
         }
+
+
+
+        // switch(maskAnim.GetInteger("lastAnim")){
+
+        //     case 1:
+        //         Debug.Log("before: " + maskAnim.transform.GetComponent<RectTransform>().localPosition);
+        //         maskAnim.transform.localPosition = new Vector3(0, 1080, 0);
+        //         Debug.Log("after: " + maskAnim.transform.GetComponent<RectTransform>().localPosition);
+        //         break;
+        //     case -1:
+        //         Debug.Log("before: " + maskAnim.transform.GetComponent<RectTransform>().localPosition);
+        //         maskAnim.transform.localPosition = new Vector3(0, 0, 0);
+        //         Debug.Log("after: " + maskAnim.transform.GetComponent<RectTransform>().localPosition);
+        //         break;
+        // }
     }
 
     public void RotRight(TargetDirection targetDirection = TargetDirection.center){
@@ -108,15 +122,29 @@ public class OfficeMovement : MonoBehaviour
     public void RotUp(TargetDirection targetDirection = TargetDirection.center){
 
 
-        if(VertDir == VertDirection.center)
-            return;
+        if(VertDir == VertDirection.center){
 
-        if(HorzDir != HorzDirection.center)
-            return;
+            if(maskOn){
 
-        targetDir = targetDirection;
-        VertDir += 1;
-        vertTarget *= Quaternion.Euler(new Vector3(-45f, 0, 0));
+                maskAnim.SetTrigger("maskUp");
+                maskOn = false;
+            }
+            else{
+
+                maskAnim.SetTrigger("maskDown");
+                maskOn = true;
+            }
+        }
+        else{
+
+            if(HorzDir != HorzDirection.center)
+                return;
+
+            targetDir = targetDirection;
+            VertDir += 1;
+            vertTarget *= Quaternion.Euler(new Vector3(-45f, 0, 0));
+        }
+
     }
 
     public void RotDown(TargetDirection targetDirection = TargetDirection.center){

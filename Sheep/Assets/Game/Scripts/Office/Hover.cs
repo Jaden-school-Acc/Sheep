@@ -1,7 +1,8 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Hover : MonoBehaviour, IPointerEnterHandler
+public class Hover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
     [SerializeField]
@@ -12,6 +13,7 @@ public class Hover : MonoBehaviour, IPointerEnterHandler
 
     [SerializeField]
     OfficeMovement movement;
+    public bool hoveredAlready = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +27,19 @@ public class Hover : MonoBehaviour, IPointerEnterHandler
         
     }
 
-    void IPointerEnterHandler.OnPointerEnter(UnityEngine.EventSystems.PointerEventData eventData){
+    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData){
         
+        // Debug.Log("hovered already ?");
+        if(hoveredAlready){
+
+            // Debug.Log("true, returning.");
+            return;
+        }
+        // Debug.Log("false. Continuing.");
+        // Debug.Log($"hovered already: {hoveredAlready}");
+        hoveredAlready = true;
+        // Debug.Log($"hovered already: {hoveredAlready}");
+
         // Debug.Log($"moving {vertDirection.ToString()}");
         if(vertDirection == VertDirection.up){
 
@@ -44,5 +57,10 @@ public class Hover : MonoBehaviour, IPointerEnterHandler
 
             movement.RotRight(TargetDirection.right);
         }
+    }
+
+    public void OnPointerExit(PointerEventData eventData){
+        
+        hoveredAlready = false;
     }
 }
