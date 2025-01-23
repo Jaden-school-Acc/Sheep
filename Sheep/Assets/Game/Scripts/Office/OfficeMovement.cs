@@ -43,6 +43,8 @@ public class OfficeMovement : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float vertSpeed;
 
+    [SerializeField] Camera computerScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,21 +76,22 @@ public class OfficeMovement : MonoBehaviour
                 break;
         }
 
+        if(Input.GetMouseButtonDown(0)){
 
+            // raycast and return hit
+            // if hit == monitor, then set that camera's priority to 100.
+            // this will open the monitor when you click on it.
 
-        // switch(maskAnim.GetInteger("lastAnim")){
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                if(hit.transform.name == "Computer Screen"){
 
-        //     case 1:
-        //         Debug.Log("before: " + maskAnim.transform.GetComponent<RectTransform>().localPosition);
-        //         maskAnim.transform.localPosition = new Vector3(0, 1080, 0);
-        //         Debug.Log("after: " + maskAnim.transform.GetComponent<RectTransform>().localPosition);
-        //         break;
-        //     case -1:
-        //         Debug.Log("before: " + maskAnim.transform.GetComponent<RectTransform>().localPosition);
-        //         maskAnim.transform.localPosition = new Vector3(0, 0, 0);
-        //         Debug.Log("after: " + maskAnim.transform.GetComponent<RectTransform>().localPosition);
-        //         break;
-        // }
+                    computerScreen.depth = 100;
+                }
+            }
+        }
     }
 
     public void RotRight(TargetDirection targetDirection = TargetDirection.center){
