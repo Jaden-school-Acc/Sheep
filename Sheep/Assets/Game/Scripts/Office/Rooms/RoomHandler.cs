@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RoomHandler : MonoBehaviour
@@ -110,6 +112,7 @@ public class RoomHandler : MonoBehaviour
             if(!player.maskOn){
 
                 Debug.Log("(Insert Jumpscare Here)");
+                GameObject.Find("Freddy").transform.GetChild(0).GetComponent<Animator>().SetTrigger("jumpscare");
                 yield break;
             }
             else{
@@ -244,6 +247,8 @@ public class RoomHandler : MonoBehaviour
             if(!player.maskOn){
 
                 Debug.Log("(Insert Jumpscare Here)");
+                GameObject.Find("Bonnie").transform.GetChild(0).GetComponent<Animator>().SetTrigger("jumpscare");
+
                 yield break;
             }
             else{
@@ -389,6 +394,7 @@ public class RoomHandler : MonoBehaviour
                 
                 yield return new WaitUntil(() => !flashlight.isActiveAndEnabled);
                 Debug.Log("(Insert Jumpscare Here)");
+                GameObject.Find("Foxy").transform.GetChild(0).GetComponent<Animator>().SetTrigger("jumpscare");
                 yield break;
             }
             else{
@@ -489,6 +495,7 @@ public class RoomHandler : MonoBehaviour
             if(!player.maskOn){
 
                 Debug.Log("(Insert Jumpscare Here)");
+                GameObject.Find("Chica").transform.GetChild(0).GetComponent<Animator>().SetTrigger("jumpscare");
                 yield break;
             }
             else{
