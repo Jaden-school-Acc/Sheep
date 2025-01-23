@@ -5500,7 +5500,7 @@ Transform:
   m_GameObject: {fileID: 392299613}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5586,7 +5586,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 50
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
@@ -6296,7 +6296,7 @@ Animator:
   m_GameObject: {fileID: 919132149584114075}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4bba8ba350dfeda4a8149203eaddd967, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -12986,7 +12986,7 @@ RectTransform:
   m_GameObject: {fileID: 1105864988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.62}
-  m_LocalScale: {x: 0.009, y: 0.009, z: 0.009}
+  m_LocalScale: {x: 0.09, y: 0.09, z: 0.09}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2009826761}
@@ -13060,7 +13060,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -14943,8 +14943,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.84}
-  m_LocalScale: {x: 17.8, y: 10, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 178, y: 100, z: 10}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1731327377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21660,6 +21660,7 @@ MonoBehaviour:
   cam: {fileID: 1335064178}
   speed: 13
   vertSpeed: 6.5
+  computerScreen: {fileID: 392299617}
 --- !u!4 &1942469409
 Transform:
   m_ObjectHideFlags: 0
@@ -27112,7 +27113,7 @@ Transform:
   m_GameObject: {fileID: 919132149584114075}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.07999992, y: 1.668, z: 0.47037578}
+  m_LocalPosition: {x: -0.07999992, y: 1.668, z: 0.4703758}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -29074,7 +29075,7 @@ Animator:
   m_GameObject: {fileID: 919132149146326946}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e3419b8008403c499cf9f222c5053a4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -75382,7 +75383,7 @@ Transform:
   m_GameObject: {fileID: 8828727459369785547}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.08199978, y: 0.036000013, z: 0.05400014}
+  m_LocalPosition: {x: -0.08199978, y: 0.03600001, z: 0.05400014}
   m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -80165,7 +80166,7 @@ Animator:
   m_GameObject: {fileID: 8828727459369785547}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 389bd52f724f23b48ba2fc7f8ad07f92, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -82324,13 +82325,36 @@ GameObject:
   - component: {fileID: 4450491677721460312}
   - component: {fileID: 2893801711041682549}
   - component: {fileID: 7985083251490096612}
+  - component: {fileID: 9060859504062916582}
   m_Layer: 0
-  m_Name: Cube.001
+  m_Name: Computer Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &9060859504062916582
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060859504062916581}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4493585093827132993, guid: bd1ac764b8a9b5149af090724ac587fe, type: 3}
 --- !u!33 &9061580053026125689
 MeshFilter:
   m_ObjectHideFlags: 0
